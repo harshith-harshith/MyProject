@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Main Heading -->
+    <h1>📘 Smart Study Planner</h1>
+
+    <!-- View Switch -->
+    <div class="view-switch">
+        <button id="daily-view">Daily View</button>
+        <button id="weekly-view">Weekly View</button>
+    </div>
+
+    <!-- Available Hours Input -->
+    <div class="hours-box">
+        <input type="number" id="available-hours" placeholder="Available Hours Today">
+        <button id="suggest-times">Suggest Time Slots</button>
+    </div>
+
+    <!-- Task Input Section -->
+    <div class="task-input">
+        <input type="text" id="task-name" placeholder="Enter Task Name">
+        <input type="number" id="task-duration" placeholder="Duration (hours)" min="1">
+        <select id="task-priority">
+            <option value="High">🔥 High Priority</option>
+            <option value="Medium">🙂 Medium Priority</option>
+            <option value="Low">😴 Low Priority</option>
+        </select>
+        <button id="add-task">Add Task</button>
+    </div>
+
+    <!-- Scheduled Tasks -->
+    <h2>Scheduled Tasks</h2>
+    <ul id="task-list"></ul>
+
+    <!-- Progress Bar -->
+    <h2>Progress</h2>
+    <div class="progress-bar">
+        <div id="progress"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
