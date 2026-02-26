@@ -1,0 +1,17 @@
+click==8.1.7
+crewai==0.130.0
+crewai-tools==0.47.1
+fastapi==0.110.3
+uvicorn==0.29.0
+python-dotenv==1.0.1
+openai==1.30.5
+langchain-community==0.0.38
+pypdf==4.2.0click==8.1.7
+crewai==0.130.0
+crewai-tools==0.47.1
+fastapi==0.110.3
+uvicorn==0.29.0
+python-dotenv==1.0.1
+openai==1.30.5
+langchain-community==0.0.38
+pypdf==4.2.0

@@ -1,122 +1,75 @@
-.
+# Financial Document Analyzer - Debug Assignment
 
-📘 Smart Study Planner
+## Project Overview
+A refactored and debugged financial document analysis system that processes corporate reports, financial statements, and investment documents using AI-powered analysis agents built with CrewAI and FastAPI.
 
-A lightweight, interactive study management web application built using HTML, CSS, and JavaScript.
-The system helps students organize daily and weekly study tasks, prioritize work, track progress, and plan efficiently using smart time recommendations.
+## Getting Started
 
-🚀 Features
-1. Smart Task Scheduling
+### Install Required Libraries
+```sh
+pip install -r requirements.txt
+```
+# Environment Configuration
 
-Tasks are automatically sorted using a priority-based scheduler:
+# Create a .env file in the root directory and add:
 
-🔥 High Priority
+OPENAI_API_KEY=your_api_key_here
 
-🙂 Medium Priority
+# Running the Application
+uvicorn main:app --reload
 
-😴 Low Priority
+The API will be available at:
 
-The system ensures that important tasks always appear at the top of the list.
+http://127.0.0.1:8000
 
-2. Daily & Weekly Views
+### Sample Document
 
-Users can switch between:
+You can test the system using financial documents such as Tesla’s quarterly financial reports.
 
-Daily View – Displays tasks created today
+## To test using a sample PDF:
 
-Weekly View – Displays all tasks saved locally
+1. Download a financial report (for example from Tesla’s investor relations page).
 
-This helps maintain short-term and long-term planning.
+2. Upload the PDF using the /analyze API endpoint.
 
-3. Progress Tracking
+3. Provide an optional query for specific analysis (e.g., revenue growth, risk insights).
 
-A dynamic progress bar updates automatically as tasks are completed, giving a visual representation of daily productivity.
+## API Documentation
 
-4. Time Slot Suggestion System
+# Endpoint
 
-Based on the number of hours the user has available for the day, the system:
+POST /analyze
 
-Calculates whether all tasks can be completed
+# Request Parameters
 
-Suggests focusing on high-priority tasks if time is insufficient
+- file → Financial PDF document (required)
 
-5. Local Storage Support
+- query → Optional analysis instruction
 
-All tasks are saved in the browser’s localStorage, ensuring:
+# Example Request
 
-No login required
+curl -X POST "http://127.0.0.1:8000/analyze" \
+  -F "file=@financial_report.pdf" \
+  -F "query=Analyze revenue trends and identify risks"
 
-Tasks persist even after page refresh
+# Example Response
+{
+  "status": "success",
+  "query": "Analyze revenue trends and identify risks",
+  "analysis": "...structured financial analysis...",
+  "file_processed": "financial_report.pdf"
+}
 
-6. Modern, Responsive UI
+# Final Features
 
-Gradient background
+- Upload financial documents (PDF format)
 
-Clean card design
+- Document validation before analysis
 
-Hover animations
+- AI-powered structured financial analysis
 
-Intuitive task controls (complete/delete)
+- Revenue and profitability insights
 
-🏗️ Tech Stack
-Frontend
+- Risk assessment based strictly on document content
 
-HTML5
-
-CSS3
-
-JavaScript (ES6)
-
-Storage
-
-Browser LocalStorage
-
-📂 Project Structure
-│── index.html         # Main interface
-│── style.css          # Styling and layout
-│── script.js          # Core application logic
-│── README.md          # Documentation
-
-⚙️ How the System Works
-1. Add Tasks
-
-Users input:
-
-Task name
-
-Duration (in hours)
-
-Priority level
-
-Tasks are then stored and ranked automatically.
-
-2. Smart Priority Scheduling
-
-Tasks are sorted internally based on:
-
-High Priority → Medium Priority → Low Priority
-
-3. Completing or Deleting Tasks
-
-✔ Mark tasks as completed
-
-✖ Delete tasks
-Both operations instantly update the progress bar and re-render the UI.
-
-4. Time Slot Recommendation
-
-The system calculates:
-
-Total hours required for all pending tasks
-
-Available hours entered by the user
-
-It then provides suggestions such as:
-
-“You can finish all tasks today.”
-
-“You need 3 more hours. Focus on high-priority tasks.”
-
-5. Persistent Storage
-
-localStorage ensures tasks remain available every time the user revisits the page.
+- Balanced investment insights grounded in financial data
